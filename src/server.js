@@ -24,7 +24,7 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Set up routes
-app.use("/api/conversations", createRouter(getConversationHistory));
+app.use("/api", createRouter(getConversationHistory));
 
 // Start the server
 const PORT = process.env.PORT || 3000;
