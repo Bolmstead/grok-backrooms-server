@@ -12,6 +12,5 @@
       "dest": "src/server.js"
     }
   ],
-  "public": true,
-  "protection": false
+  "public": true
 }
