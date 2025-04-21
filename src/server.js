@@ -17,13 +17,21 @@ const server = http.createServer(app);
 
 // Middleware
 app.use(express.json());
+
+// CORS middleware - more detailed configuration
 app.use(
   cors({
-    origin: "*", // Allow all origins
+    origin: true, // This reflects the request origin instead of * (allows any origin but maintains credentials)
+    credentials: true, // Important for requests with credentials
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
   })
 );
+
+// Handle OPTIONS pre-flight requests explicitly
+app.options("*", cors());
 
 // Connect to MongoDB
 mongoose
