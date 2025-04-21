@@ -8,9 +8,22 @@
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "src/server.js",
+      "continue": true
+    },
+    {
+      "src": "/test",
+      "dest": "src/server.js",
+      "continue": true
+    },
+    {
       "src": "/(.*)",
       "dest": "src/server.js"
     }
-  ]
-
+  ],
+  "github": {
+    "silent": true
+  },
+  "public": true
 }
