@@ -13,9 +13,9 @@ const createRouter = () => {
     try {
       const { page } = req.body;
       console.log("Received request to fetch conversations");
-      const conversations = await getConversationHistory(page);
+      const { conversations, scenario } = await getConversationHistory(page);
       console.log(`Conversations length: ${conversations.length}`);
-      return res.status(201).json(conversations);
+      return res.status(201).json({ conversations, scenario });
     } catch (error) {
       console.error("Error fetching conversations:", error);
       return res
