@@ -1,0 +1,124 @@
+{
+  "info": {
+    "name": "Infinite Backrooms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Conversations",
+      "item": [
+        {
+          "name": "Get Conversation History",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"page\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/conversations",
+              "host": ["{{base_url}}"],
+              "path": ["api", "conversations"]
+            }
+          }
+        },
+        {
+          "name": "Search Conversations",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"query\": \"search term\",\n    \"page\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/conversations/search",
+              "host": ["{{base_url}}"],
+              "path": ["api", "conversations", "search"]
+            }
+          }
+        },
+        {
+          "name": "Get Surrounding Messages",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"date\": \"2024-03-20T15:30:00Z\",\n    \"messageId\": \"65f9a1b2c3d4e5f6a7b8c9d0\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/surrounding-messages",
+              "host": ["{{base_url}}"],
+              "path": ["api", "surrounding-messages"]
+            }
+          }
+        },
+        {
+          "name": "Get Next Messages",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"date\": \"2024-03-20T15:30:00Z\",\n    \"messageId\": \"65f9a1b2c3d4e5f6a7b8c9d0\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/next-messages",
+              "host": ["{{base_url}}"],
+              "path": ["api", "next-messages"]
+            }
+          }
+        },
+        {
+          "name": "Get Previous Messages",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"date\": \"2024-03-20T15:30:00Z\",\n    \"messageId\": \"65f9a1b2c3d4e5f6a7b8c9d0\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/prev-messages",
+              "host": ["{{base_url}}"],
+              "path": ["api", "prev-messages"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    }
+  ]
+}
