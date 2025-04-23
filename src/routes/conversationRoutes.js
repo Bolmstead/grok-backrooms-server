@@ -11,11 +11,10 @@ const createRouter = () => {
 
   router.post("/conversations", async (req, res) => {
     try {
-      const { page } = req.body;
+      const { page, scenarioName } = req.body;
       console.log("Received request to fetch conversations");
-      const { conversations, scenario } = await getConversationHistory(page);
-      console.log(`Conversations length: ${conversations.length}`);
-      return res.status(201).json({ conversations, scenario });
+      const result = await getConversationHistory(scenarioName, page);
+      return res.status(201).json(result);
     } catch (error) {
       console.error("Error fetching conversations:", error);
       return res
