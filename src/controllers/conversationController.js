@@ -12,8 +12,7 @@ export async function getConversationHistory(scenarioName, page, limit = 50) {
     });
 
     if (!scenario) {
-      console.log(`⚠️ Scenario not found: ${scenarioName}`);
-      throw new Error(`Scenario not found: ${scenarioName}`);
+      return { messages: [], scenario: null, isLastPage: true };
     }
 
     console.log(
@@ -43,7 +42,7 @@ export async function getConversationHistory(scenarioName, page, limit = 50) {
   }
 }
 
-export async function searchMessages(query, page = 1, limit = 50) {
+export async function searchMessages(query, page = 1, limit = 100) {
   console.log(
     `🔍 Searching messages with query: "${query}", page: ${page}, limit: ${limit}`
   );
@@ -55,7 +54,8 @@ export async function searchMessages(query, page = 1, limit = 50) {
     )
       .sort({ score: { $meta: "textScore" } })
       .skip((page - 1) * limit)
-      .limit(limit);
+      .limit(limit)
+      .populate("scenario");
 
     console.log(`📊 Search results: ${messages.length} messages found`);
     if (messages.length === 0) {

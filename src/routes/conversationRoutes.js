@@ -69,6 +69,7 @@ const createRouter = () => {
         messages: allMessages,
         prevPageMsgId: prevPageMessage?._id || null,
         nextPageMsgId: nextPageMessage?._id || null,
+        scenario: targetMessage.scenario,
       });
     } catch (error) {
       console.error("Error fetching messages:", error);
@@ -128,11 +129,11 @@ const createRouter = () => {
 
   router.post("/conversations/search", async (req, res) => {
     try {
-      const { query, page = 1 } = req.body;
-      if (!query) {
-        return res.status(400).json({ error: "Search query is required" });
+      const { searchTerm, page = 1 } = req.body;
+      if (!searchTerm) {
+        return res.status(400).json({ error: " searchTerm is required" });
       }
-      const messages = await searchMessages(query, page);
+      const messages = await searchMessages(searchTerm, page);
       return res.status(200).json(messages);
     } catch (error) {
       console.error("Error searching messages:", error);
