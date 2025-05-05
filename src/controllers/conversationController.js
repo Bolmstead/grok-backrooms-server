@@ -1,7 +1,7 @@
 import Message from "../models/Message.js";
 import Scenario from "../models/Scenario.js";
 
-export async function getConversationHistory(scenarioName, page, limit = 50) {
+export async function getConversationHistory(scenarioName, page, limit = 100) {
   console.log(
     `🔍 Fetching conversation history for scenario: ${scenarioName}, page: ${page}, limit: ${limit}`
   );

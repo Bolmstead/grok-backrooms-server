@@ -40,7 +40,7 @@ const createRouter = () => {
         scenario: targetMessage.scenario._id,
       })
         .sort({ timestamp: 1 })
-        .limit(9)
+        .limit(50)
         .populate("scenario");
 
       // Find the ID of the message that would be 10 messages after the target within the same scenario
@@ -49,7 +49,7 @@ const createRouter = () => {
         scenario: targetMessage.scenario._id,
       })
         .sort({ timestamp: 1 })
-        .skip(9)
+        .skip(49)
         .limit(1);
 
       // Find the ID of the message that would be 10 messages before the target within the same scenario
@@ -58,7 +58,7 @@ const createRouter = () => {
         scenario: targetMessage.scenario._id,
       })
         .sort({ timestamp: -1 })
-        .skip(9)
+        .skip(49)
         .limit(1);
 
       // Combine the target message and next messages
