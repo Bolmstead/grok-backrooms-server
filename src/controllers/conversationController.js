@@ -24,7 +24,7 @@ export async function getConversationHistory(scenarioName, page, limit = 100) {
     const messages = await Message.find({
       scenario: scenario._id,
     })
-      .sort({ timestamp: 1 })
+      .sort({ timestamp: -1 })
       .skip((page - 1) * limit)
       .limit(limit);
 
