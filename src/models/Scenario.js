@@ -40,12 +40,10 @@ const ScenarioSchema = new mongoose.Schema({
   ],
   ai1Model: {
     type: String,
-    enum: Object.values(models),
     required: true,
   },
   ai2Model: {
     type: String,
-    enum: Object.values(models),
     required: true,
   },
   systemMessageAI1: {
@@ -67,6 +65,18 @@ const ScenarioSchema = new mongoose.Schema({
   ai2Temperature: {
     type: Number,
     required: true,
+  },
+  createMemeCoins: {
+    type: Boolean,
+    required: false,
+  },
+  coinCreationRequest: {
+    type: String,
+    required: false,
+  },
+  localLLM: {
+    type: Boolean,
+    required: false,
   },
 });
 
